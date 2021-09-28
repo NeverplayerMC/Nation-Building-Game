@@ -1,0 +1,66 @@
+table {border: none;}
+td{
+	width:50;
+	height:50;
+	font-size:0px;
+}
+.tdgrasstile{
+	background-image:url("../IMG/grass.png");
+}
+.tdwatertile{
+	background-image:url("../IMG/water.png");
+}
+.tdforesttile{
+	background-image:url("../IMG/forest.png");
+}
+.tdmountaintile{
+	background-image:url("../IMG/mountain.png");
+}
+.tdcitytile{
+	background-image:url("../IMG/city.png");
+	font-size:12px;
+	text-align:center;
+}
+.tdupgrademine{
+	background-image:url("../IMG/mine.png");
+}
+.tdupgradefarm{
+	background-image:url("../IMG/farmland.png");
+}
+.tdupgraderesidential{
+	background-image:url("../IMG/residential.png");
+}
+.tdupgradewood{
+	background-image:url("../IMG/woodcutter.png");
+}
+.tdselected{
+	box-shadow:inset 0px 0px 0px 2px #f00;
+}
+.tdconquered{
+	filter: hue-rotate(120deg);
+}
+.tdconqueredhid{
+	filter: hue-rotate(360deg);
+}
+#upgrades{
+	
+}
+.metric{
+	display:inline;
+	width:100px;
+}
+#mainGame{
+	min-width:500px;
+	float:left;
+	margin: 1%;
+}
+#mainScreen{
+	width:100%;
+}
+#additionalTab{
+	width:50%;
+	float:left;
+}
+#upbuttons{
+	display:none;
+}

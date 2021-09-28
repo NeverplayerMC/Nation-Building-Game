@@ -1,0 +1,157 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="CSS/style.css">
+			<script src="JS/main.js"></script>
+			<script src="JS/jquery-3.6.0.min.js"></script>
+		</head>
+		<body onload="refresher()">
+<div id="mainScreen">
+	<div id="mainGame">
+	<div>
+				<div id="popid" class="metric">Population:</div>
+				<div id="foodid" class="metric">Food:</div>
+				<div id="polpower" class="metric">Authority:</div>
+			</div>
+			<table id="map" cellspacing="0" cellpadding="0">
+				<tr>
+	<td class="tdgrasstile">TILE 1</td>
+	<td class="tdgrasstile">TILE 2</td>
+	<td class="tdgrasstile">TILE 3</td>
+	<td class="tdgrasstile">TILE 4</td>
+	<td class="tdgrasstile">TILE 5</td>
+	<td class="tdgrasstile">TILE 6</td>
+	<td class="tdgrasstile">TILE 7</td>
+	<td class="tdgrasstile">TILE 8</td>
+	<td class="tdgrasstile">TILE 9</td>
+	<td class="tdgrasstile">TILE 10</td>
+</tr>
+<tr>
+	<td class="tdgrasstile">TILE 11</td>
+	<td class="tdgrasstile">TILE 12</td>
+	<td class="tdgrasstile">TILE 13</td>
+	<td class="tdgrasstile">TILE 14</td>
+	<td class="tdgrasstile">TILE 15</td>
+	<td class="tdgrasstile">TILE 16</td>
+	<td class="tdgrasstile">TILE 17</td>
+	<td class="tdgrasstile">TILE 18</td>
+	<td class="tdgrasstile">TILE 19</td>
+	<td class="tdgrasstile">TILE 20</td>
+</tr>
+<tr>
+	<td class="tdgrasstile">TILE 21</td>
+	<td class="tdgrasstile">TILE 22</td>
+	<td class="tdgrasstile">TILE 23</td>
+	<td class="tdgrasstile">TILE 24</td>
+	<td class="tdgrasstile">TILE 25</td>
+	<td class="tdgrasstile">TILE 26</td>
+	<td class="tdgrasstile">TILE 27</td>
+	<td class="tdgrasstile">TILE 28</td>
+	<td class="tdgrasstile">TILE 29</td>
+	<td class="tdgrasstile">TILE 30</td>
+</tr>
+<tr>
+	<td class="tdgrasstile">TILE 31</td>
+	<td class="tdgrasstile">TILE 32</td>
+	<td class="tdgrasstile">TILE 33</td>
+	<td class="tdgrasstile">TILE 34</td>
+	<td class="tdgrasstile">TILE 35</td>
+	<td class="tdgrasstile">TILE 36</td>
+	<td class="tdgrasstile">TILE 37</td>
+	<td class="tdgrasstile">TILE 38</td>
+	<td class="tdgrasstile">TILE 39</td>
+	<td class="tdgrasstile">TILE 40</td>
+</tr>
+<tr>
+	<td class="tdgrasstile">TILE 41</td>
+	<td class="tdgrasstile">TILE 42</td>
+	<td class="tdgrasstile">TILE 43</td>
+	<td class="tdgrasstile">TILE 44</td>
+	<td class="tdgrasstile">TILE 45</td>
+	<td class="tdgrasstile">TILE 46</td>
+	<td class="tdgrasstile">TILE 47</td>
+	<td class="tdgrasstile">TILE 48</td>
+	<td class="tdgrasstile">TILE 49</td>
+	<td class="tdgrasstile">TILE 50</td>
+</tr>
+<tr>
+	<td class="tdgrasstile">TILE 51</td>
+	<td class="tdgrasstile">TILE 52</td>
+	<td class="tdgrasstile">TILE 53</td>
+	<td class="tdgrasstile">TILE 54</td>
+	<td class="tdgrasstile">TILE 55</td>
+	<td class="tdgrasstile">TILE 56</td>
+	<td class="tdgrasstile">TILE 57</td>
+	<td class="tdgrasstile">TILE 58</td>
+	<td class="tdgrasstile">TILE 59</td>
+	<td class="tdgrasstile">TILE 60</td>
+</tr>
+<tr>
+	<td class="tdgrasstile">TILE 61</td>
+	<td class="tdgrasstile">TILE 62</td>
+	<td class="tdgrasstile">TILE 63</td>
+	<td class="tdgrasstile">TILE 64</td>
+	<td class="tdgrasstile">TILE 65</td>
+	<td class="tdgrasstile">TILE 66</td>
+	<td class="tdgrasstile">TILE 67</td>
+	<td class="tdgrasstile">TILE 68</td>
+	<td class="tdgrasstile">TILE 69</td>
+	<td class="tdgrasstile">TILE 70</td>
+</tr>
+<tr>
+	<td class="tdgrasstile">TILE 71</td>
+	<td class="tdgrasstile">TILE 72</td>
+	<td class="tdgrasstile">TILE 73</td>
+	<td class="tdgrasstile">TILE 74</td>
+	<td class="tdgrasstile">TILE 75</td>
+	<td class="tdgrasstile">TILE 76</td>
+	<td class="tdgrasstile">TILE 77</td>
+	<td class="tdgrasstile">TILE 78</td>
+	<td class="tdgrasstile">TILE 79</td>
+	<td class="tdgrasstile">TILE 80</td>
+</tr>
+<tr>
+	<td class="tdmountaintile">TILE 81</td>
+	<td class="tdforesttile">TILE 82</td>
+	<td class="tdgrasstile">TILE 83</td>
+	<td class="tdgrasstile">TILE 84</td>
+	<td class="tdgrasstile">TILE 85</td>
+	<td class="tdgrasstile">TILE 86</td>
+	<td class="tdgrasstile">TILE 87</td>
+	<td class="tdgrasstile">TILE 88</td>
+	<td class="tdforesttile">TILE 89</td>
+	<td class="tdforesttile">TILE 90</td>
+</tr>
+<tr>
+	<td class="tdwatertile">TILE 91</td>
+	<td class="tdwatertile">TILE 92</td>
+	<td class="tdwatertile">TILE 93</td>
+	<td class="tdwatertile">TILE 94</td>
+	<td class="tdwatertile">TILE 95</td>
+	<td class="tdwatertile">TILE 96</td>
+	<td class="tdwatertile">TILE 97</td>
+	<td class="tdwatertile">TILE 98</td>
+	<td class="tdwatertile">TILE 99</td>
+	<td class="tdwatertile">TILE 100</td>
+</tr>
+</table>
+	<div id="upgrades">
+		<p id="info"></p>
+				<button onclick="createCity()">New city</button>
+				<button onclick="showCityUpgrades()">New Upgrade</button>
+				<button onclick="hideTint()">Hide Tint</button>
+				<button onclick="hideUpgrades()">Hide Bar</button>
+	</div>
+</div>
+<div id="additionalTab"><p>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non ante feugiat, scelerisque sapien eget, viverra erat. Maecenas maximus elementum tellus et posuere. Sed elementum fermentum orci, a feugiat velit ornare vel. Phasellus vestibulum, lectus non ornare gravida, tellus mauris varius ex, quis dapibus ex nibh in dui. Phasellus venenatis, quam ac cursus vulputate, lacus ante cursus lorem, sit amet aliquet libero nunc eget augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis suscipit neque vel porttitor pellentesque. Duis id ultricies sapien. Nam massa lacus, pulvinar eu elit ac, convallis scelerisque libero. Donec et sem imperdiet, egestas nibh id, consectetur nunc. Quisque sagittis arcu eros, sit amet blandit augue varius a. Integer elementum, turpis non pharetra accumsan, nunc ex porta nunc, vitae cursus dolor ipsum at lacus. Donec eros orci, iaculis id dui nec, commodo volutpat ante. Pellentesque posuere et lorem egestas aliquet.</p>
+	<div id="upbuttons">
+		<button onclick="buildFarm()">New Farm</button>
+		<button>New Housing</button>
+		<button>New Mine</button>
+		<button>New Lumberer</button>
+		<button onclick="hideCityUpgrades()">Hide Bar</button>
+	</div>
+</div>
+</div>
+</body>
+	</html>
