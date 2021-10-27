@@ -7,3 +7,4 @@ LISTA MEMBRILOR:
 -Andreea Ciuse-Redactor
 -Radu Lung-Tester
 -Andrei Ionut-Developer
+https://trello.com/b/ZmZCLE4B/managementul-proiectului
