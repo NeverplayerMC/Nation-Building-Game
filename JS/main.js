@@ -159,7 +159,7 @@ function createCity(){
 	authority=authority+3;
 	}
 	else{
-		alert("You can't create a city on water.")
+		alert("You can't create a city here.")
 	}
 }
 function updateTerr(){
@@ -274,4 +274,33 @@ function buildFarm(){
 function hideTint(){
 	let cities=document.getElementsByClassName("tdconquered");
 	console.log(cities);
+}
+function generateMap(){
+	let genMap=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	for(i =0;i<100;i++){
+		let rand=Math.round(Math.random()*10);
+		if(rand>=3){
+			genMap[i]=1;
+		}
+		else{
+			genMap[i]=0;
+		}
+	}
+	for(i=0;i<100;i++){
+		tiles3=document.getElementsByClassName("tdgrasstile");
+	}
+	for(i=1;i<=100;i++){
+		if(genMap[i]==0){
+			tiles3[i].classList.add("tdwatertile");
+		}
+		if((genMap[i]==1)&&(Math.random()>0.8)){
+			tiles3[i].classList.add("tdforesttile");
+		}
+		else if((genMap[i]==1)&&(Math.random()>0.9)){
+			tiles3[i].classList.add("tdmountaintile");
+		}
+	}
+}
+function saveMap(){
+	
 }
