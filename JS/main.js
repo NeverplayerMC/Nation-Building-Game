@@ -5,6 +5,13 @@ let highTile=0;
 let population=0;
 let food=0;
 let authority=0;
+let wood=0;
+let stone=0;
+let consw=0;
+let woodTile=0;
+let stoneTile=0;
+let popTile=0;
+let foodTile=0;
 const tiles=["TILE 1",
 "TILE 2",
 "TILE 3",
@@ -229,22 +236,31 @@ function refresher(){
 	authmetric.innerHTML="Authority:"+authority;
 	let foodmetric=document.getElementById("foodid");
 	foodmetric.innerHTML="Food:"+food;
+	let woodmetric=document.getElementById("woodid");
+	woodmetric.innerHTML="Wood:"+wood;
+	let stonemetric=document.getElementById("stoneid");
+	stonemetric.innerHTML="Stone:"+stone;
 }, 1000);
 }
-function showCityUpgrades(){
-	let selected=document.getElementById("SEL")
-	let arr=selected.className.split(" ");
-	if((arr[0]=="tdcitytile")||(arr[0]=="tdwatertile")){
-		alert("You cannot upgrade this type of terrain.");
-	}
-	else{
-		if(arr[1]!="tdconquered"){
-			alert("You cannot build upgrades outside of your borders.");
+function grower(){
+	setInterval(function(){
+		wood=wood+woodTile;
+		stone=stone+stoneTile;
+		if(population>food){
+			population=population-1;
+			food=food-2;
 		}
 		else{
-			showCityUpgrades2();
+			if(population<food){
+				population=population+1;
+			}
 		}
-	}
+	},2500)
+}
+function showCityUpgrades(){
+	let selected=document.getElementById("SEL");
+	let arr=selected.className.split(" ");
+	showCityUpgrades2();
 }
 function showCityUpgrades2(){
 	document.getElementById("upbuttons").style.display="block";
@@ -253,7 +269,7 @@ function hideCityUpgrades(){
 	document.getElementById("upbuttons").style.display="none";
 }
 function buildFarm(){
-	let selected=document.getElementById("SEL")
+	let selected=document.getElementById("SEL");
 	let arr=selected.className.split(" ");
 	if((arr[0]=="tdcitytile")||(arr[0]=="tdwatertile")){
 		alert("You cannot upgrade this type of terrain.");
@@ -268,12 +284,95 @@ function buildFarm(){
 			selected.classList.add(arr[0]);
 			selected.classList.add(arr[1]);
 			food=food+50;
+			foodTile=foodTile+1;
 		}
 	}	
 }
-function hideTint(){
-	let cities=document.getElementsByClassName("tdconquered");
-	console.log(cities);
+function buildLumberer(){
+	let selected=document.getElementById("SEL");
+	let arr=selected.className.split(" ");
+	console.log(arr)
+	if((arr[0]=="tdcitytile")||(arr[0]=="tdwatertile")){
+		alert("You cannot upgrade this type of terrain.");
+	}
+	else{
+		if(arr[1]!="tdconquered"){
+			alert("You cannot build upgrades outside of your borders.");
+		}
+		else if(arr[1]!="tdforesttile"){
+			arr[0]="tdupgradelumberer";
+			selected.className="";
+			selected.classList.add(arr[0]);
+			selected.classList.add(arr[1]);
+			selected.classList.add(arr[2]);
+			selected.classList.add(arr[3]);
+			wood=wood+50;
+			woodTile=woodTile+1;
+		}
+	}	
+}
+function buildMine(){
+	let selected=document.getElementById("SEL");
+	let arr=selected.className.split(" ");
+	console.log(arr)
+	if((arr[0]=="tdcitytile")||(arr[0]=="tdwatertile")){
+		alert("You cannot upgrade this type of terrain.");
+	}
+	else{
+		if(arr[1]!="tdconquered"){
+			alert("You cannot build upgrades outside of your borders.");
+		}
+		else if(arr[1]!="tdmountaintile"){
+			arr[0]="tdupgrademine";
+			selected.className="";
+			selected.classList.add(arr[0]);
+			selected.classList.add(arr[1]);
+			selected.classList.add(arr[2]);
+			selected.classList.add(arr[3]);
+			stone=stone+50;
+			stoneTile=stoneTile+1;
+		}
+	}	
+}
+function buildResidential(){
+	let selected=document.getElementById("SEL");
+	let arr=selected.className.split(" ");
+	console.log(arr)
+	if((arr[0]=="tdcitytile")||(arr[0]=="tdwatertile")){
+		alert("You cannot upgrade this type of terrain.");
+	}
+	else{
+		if(arr[1]!="tdconquered"){
+			alert("You cannot build upgrades outside of your borders.");
+		}
+		else if(arr[1]!="tdgrasstile"){
+			arr[0]="tdupgraderesidential";
+			selected.className="";
+			selected.classList.add(arr[0]);
+			selected.classList.add(arr[1]);
+			selected.classList.add(arr[2]);
+			selected.classList.add(arr[3]);
+			population=population+50;
+			popTile=popTile+1;
+		}
+	}	
+}
+function swTint(){
+	if(consw==0)
+	{
+		let cities=document.getElementsByClassName("tdconquered");
+		for(i=0;i<cities.length;i++){
+			cities[i].classList.add("tdconqueredhid");
+		}
+		consw=1;
+	}
+	else{
+		let cities=document.getElementsByClassName("tdconquered");
+		for(i=0;i<cities.length;i++){
+			cities[i].classList.remove("tdconqueredhid");
+		}
+		consw=0;
+	}
 }
 function generateMap(){
 	let genMap=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -292,12 +391,15 @@ function generateMap(){
 	for(i=1;i<=100;i++){
 		if(genMap[i]==0){
 			tiles3[i].classList.add("tdwatertile");
+			tiles3[i].classList.remove("tdgrasstile");
 		}
 		if((genMap[i]==1)&&(Math.random()>0.8)){
 			tiles3[i].classList.add("tdforesttile");
+			tiles3[i].classList.remove("tdgrasstile");
 		}
 		else if((genMap[i]==1)&&(Math.random()>0.9)){
 			tiles3[i].classList.add("tdmountaintile");
+			tiles3[i].classList.remove("tdgrasstile");
 		}
 	}
 }

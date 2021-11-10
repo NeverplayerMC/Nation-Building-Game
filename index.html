@@ -4,12 +4,14 @@
 			<script src="JS/main.js"></script>
 			<script src="JS/jquery-3.6.0.min.js"></script>
 		</head>
-		<body onload="refresher()">
+		<body onload="refresher(),grower()">
 <div id="mainScreen">
 	<div id="mainGame">
 	<div>
 				<div id="popid" class="metric">Population:</div>
 				<div id="foodid" class="metric">Food:</div>
+				<div id="woodid" class="metric">Wood:</div>
+				<div id="stoneid" class="metric">Stone:</div>
 				<div id="polpower" class="metric">Authority:</div>
 			</div>
 			<table id="map" cellspacing="0" cellpadding="0">
@@ -139,7 +141,7 @@
 				<button onclick="generateMap()">Gen Map</button>
 				<button onclick="createCity()">New city</button>
 				<button onclick="showCityUpgrades()">New Upgrade</button>
-				<button onclick="hideTint()">Hide Tint</button>
+				<button onclick="swTint()">Hide Tint</button>
 				<button onclick="hideUpgrades()">Hide Bar</button>
 	</div>
 </div>
@@ -147,9 +149,9 @@
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non ante feugiat, scelerisque sapien eget, viverra erat. Maecenas maximus elementum tellus et posuere. Sed elementum fermentum orci, a feugiat velit ornare vel. Phasellus vestibulum, lectus non ornare gravida, tellus mauris varius ex, quis dapibus ex nibh in dui. Phasellus venenatis, quam ac cursus vulputate, lacus ante cursus lorem, sit amet aliquet libero nunc eget augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis suscipit neque vel porttitor pellentesque. Duis id ultricies sapien. Nam massa lacus, pulvinar eu elit ac, convallis scelerisque libero. Donec et sem imperdiet, egestas nibh id, consectetur nunc. Quisque sagittis arcu eros, sit amet blandit augue varius a. Integer elementum, turpis non pharetra accumsan, nunc ex porta nunc, vitae cursus dolor ipsum at lacus. Donec eros orci, iaculis id dui nec, commodo volutpat ante. Pellentesque posuere et lorem egestas aliquet.</p>
 	<div id="upbuttons">
 		<button onclick="buildFarm()">New Farm</button>
-		<button>New Housing</button>
-		<button>New Mine</button>
-		<button>New Lumberer</button>
+		<button onclick="buildResidential()">New Housing</button>
+		<button onclick="buildMine()">New Mine</button>
+		<button onclick="buildLumberer()">New Lumberer</button>
 		<button onclick="hideCityUpgrades()">Hide Bar</button>
 	</div>
 </div>

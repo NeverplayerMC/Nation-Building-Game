@@ -30,7 +30,7 @@ td{
 .tdupgraderesidential{
 	background-image:url("../IMG/residential.png");
 }
-.tdupgradewood{
+.tdupgradelumberer{
 	background-image:url("../IMG/woodcutter.png");
 }
 .tdselected{
@@ -40,7 +40,7 @@ td{
 	filter: hue-rotate(120deg);
 }
 .tdconqueredhid{
-	filter: hue-rotate(360deg);
+	filter: hue-rotate(24deg);
 }
 #upgrades{
 	
