@@ -4,7 +4,7 @@
 			<script src="JS/main.js"></script>
 			<script src="JS/jquery-3.6.0.min.js"></script>
 		</head>
-		<body onload="refresher(),grower()">
+		<body onload="refresher(),grower(),authgrow()">
 <div id="mainScreen">
 	<div id="mainGame">
 	<div>
@@ -141,7 +141,7 @@
 				<button onclick="generateMap()">Gen Map</button>
 				<button onclick="createCity()">New city</button>
 				<button onclick="showCityUpgrades()">New Upgrade</button>
-				<button onclick="swTint()">Hide Tint</button>
+				<button onclick="swTint()">Switch Tint</button>
 				<button onclick="hideUpgrades()">Hide Bar</button>
 	</div>
 </div>
@@ -152,6 +152,7 @@
 		<button onclick="buildResidential()">New Housing</button>
 		<button onclick="buildMine()">New Mine</button>
 		<button onclick="buildLumberer()">New Lumberer</button>
+		<button onclick="convertsoldiers()">Convert Citizens to Soldiers</button>
 		<button onclick="hideCityUpgrades()">Hide Bar</button>
 	</div>
 </div>

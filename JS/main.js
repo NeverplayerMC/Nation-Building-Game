@@ -3,15 +3,18 @@ let map_width=4;
 let map_height=4
 let highTile=0;
 let population=0;
-let food=0;
+let food=110;
 let authority=0;
-let wood=0;
-let stone=0;
+let wood=150;
+let stone=150;
 let consw=0;
 let woodTile=0;
 let stoneTile=0;
 let popTile=0;
 let foodTile=0;
+let cityTile=0;
+let armysize=0;
+let gold=0;
 const tiles=["TILE 1",
 "TILE 2",
 "TILE 3",
@@ -155,6 +158,8 @@ function removeHighlights(tile){
 }
 function createCity(){
 	let toCity=document.getElementById("SEL");
+	authority=authority-3;
+	if((wood>100)&&(stone>100)&&(Math.round(authority))>(Math.round(population/100))){
 	if (toCity.className=="tdgrasstile tdselected"){
 	let tileid=window.prompt("Insert the city name:");
 	tiles.push(toCity.innerHTML+" "+tileid);
@@ -164,10 +169,17 @@ function createCity(){
 	population=population+100;
 	updateTerr();
 	authority=authority+3;
+	wood=wood-100;
+	stone=stone-100;
+	cityTile=cityTile+1;
 	}
 	else{
-		alert("You can't create a city here.")
+		alert("You can't create a city here.");
 	}
+}
+else{
+	alert("You don't have enough resources.");
+}
 }
 function updateTerr(){
 	let cities=document.getElementsByClassName("tdcitytile");
@@ -240,22 +252,37 @@ function refresher(){
 	woodmetric.innerHTML="Wood:"+wood;
 	let stonemetric=document.getElementById("stoneid");
 	stonemetric.innerHTML="Stone:"+stone;
-}, 1000);
+	if(population<0) population=0;
+	if(authority<0) authority=0;
+	if(food<0) food=0;
+	if(wood<0) wood=0;
+	if(stone<0) stone=0;
+}, 100);
 }
 function grower(){
 	setInterval(function(){
 		wood=wood+woodTile;
 		stone=stone+stoneTile;
 		if(population>food){
-			population=population-1;
+			population=population-popTile;
 			food=food-2;
 		}
 		else{
 			if(population<food){
-				population=population+1;
+				population=population+popTile;
 			}
 		}
 	},2500)
+}
+function authgrow(){
+	setInterval(function(){
+		if(food<population){
+			authority=authority-0.1;
+		}
+		else if(food>population){
+			authority=authority+0.1;
+		}
+	},15000)
 }
 function showCityUpgrades(){
 	let selected=document.getElementById("SEL");
@@ -271,6 +298,7 @@ function hideCityUpgrades(){
 function buildFarm(){
 	let selected=document.getElementById("SEL");
 	let arr=selected.className.split(" ");
+	if((wood>15) && (stone>8)){
 	if((arr[0]=="tdcitytile")||(arr[0]=="tdwatertile")){
 		alert("You cannot upgrade this type of terrain.");
 	}
@@ -283,16 +311,24 @@ function buildFarm(){
 			selected.className="";
 			selected.classList.add(arr[0]);
 			selected.classList.add(arr[1]);
-			food=food+50;
 			foodTile=foodTile+1;
+			wood=wood-15;
+			stone=stone-8;
+			food=food+50;
 		}
 	}	
+	}
+	else{
+		alert("You don't have enough resources.");
+		
+	}
 }
 function buildLumberer(){
 	let selected=document.getElementById("SEL");
 	let arr=selected.className.split(" ");
 	console.log(arr)
-	if((arr[0]=="tdcitytile")||(arr[0]=="tdwatertile")){
+	if((wood>30)&&(stone>12)){
+		if((arr[0]=="tdcitytile")||(arr[0]=="tdwatertile")){
 		alert("You cannot upgrade this type of terrain.");
 	}
 	else{
@@ -306,15 +342,21 @@ function buildLumberer(){
 			selected.classList.add(arr[1]);
 			selected.classList.add(arr[2]);
 			selected.classList.add(arr[3]);
-			wood=wood+50;
 			woodTile=woodTile+1;
+			wood=wood-30;
+			stone=stone-12;
 		}
+	}
 	}	
+	else{
+		alert("You don't have enough resources.");
+	}
 }
 function buildMine(){
 	let selected=document.getElementById("SEL");
 	let arr=selected.className.split(" ");
-	console.log(arr)
+	console.log(arr);
+	if((wood>12)&&(stone>30)){
 	if((arr[0]=="tdcitytile")||(arr[0]=="tdwatertile")){
 		alert("You cannot upgrade this type of terrain.");
 	}
@@ -329,12 +371,18 @@ function buildMine(){
 			selected.classList.add(arr[1]);
 			selected.classList.add(arr[2]);
 			selected.classList.add(arr[3]);
-			stone=stone+50;
 			stoneTile=stoneTile+1;
+			wood=wood-12;
+			stone=stone-30;
 		}
 	}	
+	}
+	else{
+		alert("You don't have enough resources.");
+	}
 }
 function buildResidential(){
+	if((wood>20)&&(stone>20)){
 	let selected=document.getElementById("SEL");
 	let arr=selected.className.split(" ");
 	console.log(arr)
@@ -352,10 +400,27 @@ function buildResidential(){
 			selected.classList.add(arr[1]);
 			selected.classList.add(arr[2]);
 			selected.classList.add(arr[3]);
-			population=population+50;
 			popTile=popTile+1;
+			
+			wood=wood-20;
+			stone=stone-20;
 		}
-	}	
+	}
+	}
+	else{
+		alert("You don't have enough resources.");
+	}
+}
+function convertsoldiers(){
+	if(population>0){
+		let no_sold=prompt("How many soldiers should we convert, sire?");
+		if(no_sold>population){
+			alert("Not enugh people, sire.");
+		}
+		else{
+			soldiers=soldiers+no_sold;
+		}
+	}
 }
 function swTint(){
 	if(consw==0)
