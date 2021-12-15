@@ -1,8 +1,21 @@
-table {border: none;}
+@font-face {
+  font-family: "PW";
+  src: url("../FONTS/Planewalker.otf");
+}
+body{
+	background-image:url("../IMG/mainback.jpeg");
+	background-size:cover;
+}
+table {border: solid;}
 td{
 	width:50;
 	height:50;
 	font-size:0px;
+}
+button{
+	background-color: #B5651D;
+	border:groove;
+	
 }
 .tdgrasstile{
 	background-image:url("../IMG/grass.png");
@@ -21,17 +34,40 @@ td{
 	font-size:12px;
 	text-align:center;
 }
+.tdencitytile{
+	background-image:url("../IMG/encity.png");
+	font-size:12px;
+	text-align:center;
+}
+.tdenconquered{
+	filter: hue-rotate(180deg);
+}
+.tdenconqueredd{
+	filter: hue-rotate(180deg);
+}
 .tdupgrademine{
 	background-image:url("../IMG/mine.png");
+}
+.tdenupgrademine{
+	background-image:url("../IMG/enmine.png");
 }
 .tdupgradefarm{
 	background-image:url("../IMG/farmland.png");
 }
+.tdenupgradefarm{
+	background-image:url("../IMG/enfarmland.png");
+}
 .tdupgraderesidential{
 	background-image:url("../IMG/residential.png");
 }
+.tdenupgraderesidential{
+	background-image:url("../IMG/enresidential.png");
+}
 .tdupgradelumberer{
 	background-image:url("../IMG/woodcutter.png");
+}
+.tdenupgradelumberer{
+	background-image:url("../IMG/enwoodcutter.png");
 }
 .tdselected{
 	box-shadow:inset 0px 0px 0px 2px #f00;
@@ -43,11 +79,13 @@ td{
 	filter: hue-rotate(24deg);
 }
 #upgrades{
-	
+	text-align:center;
 }
 .metric{
 	display:inline;
 	width:100px;
+	border:solid;
+	background-color: #B5651D;
 }
 #mainGame{
 	min-width:500px;
@@ -58,9 +96,57 @@ td{
 	width:100%;
 }
 #additionalTab{
-	width:50%;
+	width:55%;
 	float:left;
+	text-align:center;
+	background-color:gray;
+	border:solid;
 }
 #upbuttons{
 	display:none;
+	text-align:center;
+}
+#warbuttons{
+	display:none;
+	text-align:center;
+}
+#adminbuttons{
+	display:none;
+	text-align:center;
+}
+#miscbuttons{
+	display:none;
+	text-align:center;
+}
+#advbuttons{
+	display:none;
+	text-align:center;
+}
+#generalnews{
+	text-align:center;
+	border:solid;
+	background-color:#eaaf7b;
+}
+.myreply{
+	font-size:100%;
+	width:25vw;
+	text-align:center;
+	border:solid;
+	background-color:gray;
+}
+.otherreply{
+	font-size:100%;
+	width:25vw;
+	text-align:center;
+	border:solid;
+	background-color:gray;
+}
+#introdiag{
+	border:solid;
+}
+* {
+ font-family: "PW";
+}
+#info{
+	text-align:center;
 }
